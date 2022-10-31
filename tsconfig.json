@@ -9,7 +9,7 @@
     "baseUrl": "src",
     "paths": {
       "@config": ["./config"],
-      "@shared/*": ["./shared/*"],
+      "@context/*": ["./context/*"],
       "@app/*": ["./app/*"]
     },
     "resolveJsonModule": true /* Enable importing .json files. */,
