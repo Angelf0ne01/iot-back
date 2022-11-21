@@ -1,8 +1,5 @@
 import { Device } from "./Device";
-import { DeviceUserId } from "./DeviceUserId";
-import { DeviceId } from "./DeviceId";
-import { DeviceName } from "./DeviceName";
-import { DeviceIdType } from "./DeviceIdType";
+import { DeviceId } from "./devices-id";
 
 export interface DeviceRepository {
   delete: (DeviceId: DeviceId) => void;
