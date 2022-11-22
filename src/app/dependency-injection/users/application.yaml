@@ -1,0 +1,8 @@
+services:
+  Iot.users.domain.MongoUserRepository:
+    class: ../../../context/iot/users/infraestructure/MongoUserRepository
+    arguments: ["@Iot.shared.ConnectionManager"]
+
+  Iot.users.application.CreateUser:
+    class: ../../../context/iot/users/application/create/CreateUser
+    arguments: ["@Iot.users.domain.MongoUserRepository"]

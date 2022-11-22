@@ -1,6 +1,6 @@
-import { TypeDescription } from "@context/iot/type/domain/type-description";
-import { UserId } from "@context/iot/users/domain/UserId";
-import { AggregateRoot } from "@context/shared/domain/AggregateRoot";
+import { TypeDescription } from "context/iot/type/domain/type-description";
+import { UserId } from "context/iot/users/domain/UserId";
+import { AggregateRoot } from "context/shared/domain/AggregateRoot";
 import { DeviceId } from "./devices-id";
 import { DeviceName } from "./devices-name";
 import { DeviceNumberSerial } from "./devices-number-serial";

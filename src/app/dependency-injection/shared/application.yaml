@@ -1,0 +1,65 @@
+services:
+  Iot.shared.MongoConfigFactory:
+    factory:
+      class: "../../../context/iot/shared/infraestructure/persistence/mongo/MongoConfigFactory"
+      method: "createConfig"
+
+  # Iot.shared.RabbitMQConfig:
+  #   factory:
+  #     class: ../../../context/iot/shared/infraestructure/RabbitMQ/RabbitMQConfigFactory
+  #     method: "createConfig"
+
+  # Iot.shared.domain.EventBus:
+  #   factory:
+  #     class: ../../../context/iot/shared/infraestructure/RabbitMQ/RabbitMQEventBusFactory
+  #     method: "create"
+  #   arguments:
+  #     [
+  #       "@Iot.shared.DomainEventFailoverPublisher",
+  #       "@Iot.shared.RabbitMQConnection",
+  #       "@Iot.shared.RabbitMQqueueFormatter",
+  #       "@Iot.shared.RabbitMQConfig",
+  #     ]
+
+  Iot.shared.ConnectionManager:
+    factory:
+      class: ../../../context/shared/infrastructure/persistence/mongo/MongoClientFactory
+      method: "createClient"
+    arguments: ["iot", "@Iot.shared.MongoConfigFactory"]
+
+  # Iot.shared.RabbitMQQueueFormatter:
+  #   class: ../../../context/shared/infrastructure/EventBus/RabbitMq/RabbitMQExchangeNameFormatter
+  #   arguments: ["iot"]
+
+  # Iot.shared.RabbitMQConnection:
+  #   class: ../../../context/shared/infrastructure/EventBus/RabbitMq/RabbitMqConnection
+  #   arguments: ["@Iot.shared.RabbitMQConfig"]
+
+  # Iot.shared.RabbitMQqueueFormatter:
+  #   class: ../../../context/shared/infrastructure/EventBus/RabbitMq/RabbitMQqueueFormatter
+  #   arguments: ["iot"]
+
+  # Iot.shared.RabbitMQConfigurer:
+  #   class: ../../../context/shared/infrastructure/EventBus/RabbitMq/RabbitMQConfigurer
+  #   arguments:
+  #     ["@Iot.shared.RabbitMQConnection", "@Iot.shared.RabbitMQQueueFormatter"]
+
+  # Iot.shared.DomainEventFailoverPublisher:
+  #   class: ../../../context/shared/infrastructure/EventBus/DomainEventFailoverPublisher/DomainEventFailoverPublisher
+  #   arguments: ["@Iot.shared.ConnectionManager"]
+
+  # Iot.shared.CommandHandlers:
+  #   class: ../../../context/shared/infrastructure/CommandBus/CommandHandlers
+  #   arguments: ["!tagged commandHandler"]
+
+  # Iot.shared.domain.CommandBus:
+  #   class: ../../../context/shared/infrastructure/CommandBus/InMemoryCommandBus
+  #   arguments: ["@Iot.shared.CommandHandlers"]
+
+  # Iot.shared.QueryHandlers:
+  #   class: ../../../context/shared/infrastructure/QueryBus/QueryHandlers
+  #   arguments: ["!tagged queryHandler"]
+
+  # Iot.shared.domain.QueryBus:
+  #   class: ../../../context/shared/infrastructure/QueryBus/InMemoryQueryBus
+  #   arguments: ["@Iot.shared.QueryHandlers"]

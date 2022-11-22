@@ -1,6 +1,7 @@
 import { config } from "./../config";
 import { Server } from "./server";
 
+
 export class IotBackendApp {
   server?: Server;
 

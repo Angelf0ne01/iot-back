@@ -1,0 +1,21 @@
+{
+  "mongo": { "url": "mongodb://localhost:27017/mooc-backend-test" },
+  "typeorm": { "database": "mooc-backend-dev" },
+  "rabbitmq": {
+    "connectionSettings": {
+      "username": "guest",
+      "password": "guest",
+      "vhost": "/",
+      "connection": {
+        "secure": false,
+        "hostname": "localhost",
+        "port": 5672
+      }
+    },
+    "exchangeSettings": {
+      "name": "domain_events"
+    },
+    "maxRetries": 3,
+    "retryTtl": 1000
+  }
+}

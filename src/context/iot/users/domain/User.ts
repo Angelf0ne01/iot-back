@@ -1,4 +1,4 @@
-import { AggregateRoot } from "@context/shared/domain/AggregateRoot";
+import { AggregateRoot } from "../../../shared/domain/AggregateRoot";
 import { UserEmail } from "./UserEmail";
 import { UserId } from "./UserId";
 import { UserName } from "./UserName";
@@ -30,6 +30,16 @@ export class User extends AggregateRoot {
   ) {
     const user = new User(id, name, email, password);
     return user;
+  }
+
+
+  static fromPrimitives(plainData: { id: string; name: string; email: string, password: string }): User {
+    return new User(
+      new UserId(plainData.id),
+      new UserName(plainData.name),
+      new UserEmail(plainData.email),
+      new UserPassword(plainData.password),
+    );
   }
 
   toPrimitives(): any {

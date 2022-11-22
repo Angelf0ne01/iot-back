@@ -4,12 +4,12 @@ import { UserId } from "./UserId";
 import { UserPassword } from "./UserPassword";
 
 export interface UserRepositorty {
-  delete: (userId: UserId) => void;
-  save: (user: User) => User;
-  update: (user: User) => User;
-  findAll: () => User[];
-  findByEmailAndPassword: (
+  delete(userId: UserId): Promise<void>;
+  save(user: User): Promise<void>;
+  update(user: User): Promise<void>;
+  findAll(): Promise<User[] | null>;
+  findByEmailAndPassword(
     email: UserEmail,
     password: UserPassword
-  ) => User | null;
+  ): Promise<User | null>;
 }

@@ -1,0 +1,4 @@
+services:
+  Apps.iot.controllers.UserPostController:
+    class: ../../controllers/users/UserPostController
+    arguments: []
