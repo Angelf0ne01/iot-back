@@ -1,6 +1,6 @@
 {
-  "mongo": { "url": "mongodb://localhost:27017/mooc-backend-test" },
-  "typeorm": { "database": "mooc-backend-dev" },
+  "mongo": { "url": "mongodb+srv://root:root@cluster0.6sjznah.mongodb.net/?retryWrites=true&w=majority" },
+  "typeorm": { "database": "iot" },
   "rabbitmq": {
     "connectionSettings": {
       "username": "guest",
